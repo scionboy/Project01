@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -93,18 +94,21 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>1234</td>
-                    <td class="board_title">아마자마나바qw나아자나마자</td>
-                    <td>운영자</td>
-                    <td>2020.02.02</td>
-                    <td>14</td>
-                    <td>2</td>
-                </tr>
+                <c:forEach var="b" items="${bList}">
+                    <tr>
+                        <td>${b.board_no}</td>
+                        <td class="board_title">${b.title}</td>
+<%--                        <td>${b.user_name}</td>--%>
+                        <td>2020.02.02</td>
+                        <td>14</td>
+                        <td>2</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
 
         </div>
+        <a href="/board/write">글쓰기</a>
     </section>
 
     <%@include file="../include/footer.jsp" %>

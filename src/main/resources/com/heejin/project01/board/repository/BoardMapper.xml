@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.heejin.project01.board.repository.BoardMapper">
+
+
+    <insert id="insert">
+        insert into board (title, content)
+        values (#{title}, #{content})
+    </insert>
+
+    <select id="selectAll" resultType="com.heejin.project01.board.domain.Board">
+        select distinct A.board_no, A.content, A.user_id, A.title, B.user_name
+        from board A
+                 left outer join user_account B on A.user_id = B.user_id
+        group by A.board_no desc
+
+    </select>
+</mapper>
+
+        <!--<select id="searchAll" resultMap="boardMap">-->
+        <!--SELECT DISTINCT A.board_no, A.content, A.user_id, A.title, A.reg_date, A.hit, A.recommend, B.tag_value-->
+        <!--from board A-->
+        <!--         left outer join tag B ON A.board_no = B.board_no-->
+        <!--where A.title like CONCAT('%',#{keyword},'%') or A.content like CONCAT('%',#{keyword},'%') or B.tag_value like CONCAT('%',#{keyword},'%')-->
+        <!--group by A.board_no desc-->
+        <!--</select>-->

@@ -12,4 +12,9 @@
         values (#{user_email}, #{user_pass}, #{user_name})
     </insert>
 
+    <select id="selectOne" resultType="com.heejin.project01.admin.domain.Admin">
+        select *
+        from user_account where user_email=#{user_email};
+    </select>
+
 </mapper>

@@ -76,6 +76,7 @@
     <!-- navbar menu -->
     <div class="collapse navbar-collapse" id="navbar-menu">
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login">Login</a></li>
         <li><a href="#home">Home</a></li>
         <li><a href="#features">About</a></li>
         <li><a href="#business">Service</a></li>
